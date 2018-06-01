@@ -1,8 +1,8 @@
 export class Subject {
     id: number;
-    name: string;
-    grade: number;
-    timetable: string;
-    date: string;
-    inscribed: string;
+    nombre: string;
+    grado: number;
+    horario: string;
+    fecha: string;
+    inscripto: boolean;
 }
