@@ -1,0 +1,22 @@
+<table *ngIf="subjects?.length" class="table">
+  <thead>
+    <th>Nombre</th>
+    <th>Grado</th>
+    <th>Fecha</th>
+    <th>Horario</th>
+    <th>Inscripto</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subject of subjects">
+      <td>{{ subject?.nombre }}</td>
+      <td>{{ subject?.grado }}</td>
+      <td>{{ subject?.fecha | date:'dd/MM/yyyy' }}</td>
+      <td>{{ subject?.horario }}</td>
+      <td>{{ (subject?.inscripto) ? 'SI' : 'NO' }}</td>
+      <td>
+        <a class="btn btn-default" *ngIf="!subject?.inscripto" (click)="subject.inscripto = !subject.inscripto" >Inscribirme</a>
+        <a class="btn btn-default" *ngIf="subject?.inscripto" (click)="subject.inscripto = !subject.inscripto">Desinscribirme</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

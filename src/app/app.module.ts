@@ -17,6 +17,7 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { SubjectService } from './_services/subject.service';
+import { SubjectsComponent } from './subjects/subjects.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { SubjectService } from './_services/subject.service';
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        SubjectsComponent
     ],
     providers: [
         AuthGuard,
