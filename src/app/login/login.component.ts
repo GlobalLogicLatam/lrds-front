@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
+    retries: number = 0;
 
     constructor(
         private route: ActivatedRoute,
@@ -35,8 +36,12 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
                     this.loading = false;
+                    this.retries++;
+                    if (this.retries === 3) {
+                        error = 'Error. Debe esperar 10 minutos para volver a intentarlo.';
+                    }
+                    this.alertService.error(error);
                 });
     }
 }

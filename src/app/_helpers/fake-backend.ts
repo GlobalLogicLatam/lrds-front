@@ -24,7 +24,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return Observable.of(null).mergeMap(() => {
 
           // authenticate
-          if (request.url.endsWith('/api/authenticate') && request.method === 'POST') {
+          if (request.url.endsWith('/user/login') && request.method === 'POST') {
               // find if any user matches login credentials
               let filteredUsers = users.filter(user => {
                   return user.username === request.body.username && user.password === request.body.password;
@@ -44,7 +44,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   return Observable.of(new HttpResponse({ status: 200, body: body }));
               } else {
                   // else return 400 bad request
-                  return Observable.throw('Username or password is incorrect');
+                  return Observable.throw('Username o password incorrecto');
               }
           }
 
